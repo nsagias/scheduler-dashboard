@@ -36,23 +36,24 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
 
-    // this.selectPanel = this.selectPanel.bind(this);
+    this.selectPanel = this.selectPanel.bind(this);
   }
   state = {
     loading: false,
     focused:  null
   };
 
-  // selectPanel(id) {
-  //   this.setState({ 
-  //     focused: id
+  selectPanel(id) {
+    this.setState(previousState => ({
+      focused: previousState.focused !== null ? null : id
+    }));
+  }
+  // selectPanel = id => {
+  //   this.setState({
+  //    focused: id
   //   });
-  // }
-  selectPanel = id => {
-    this.setState({
-     focused: id
-    });
-  };
+  // };
+  
 
   render() {
     const dashboardClasses = classnames("dashboard", {
