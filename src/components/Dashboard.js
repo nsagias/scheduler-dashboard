@@ -35,8 +35,14 @@ const data = [
 class Dashboard extends Component {
   state = {
     loading: false,
-    focused: null
+    focused:  null
   };
+
+  selectPanel(id) {
+    this.setState({ 
+      focused: id
+    });
+  }
 
   render() {
     const dashboardClasses = classnames("dashboard", {
