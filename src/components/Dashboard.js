@@ -33,16 +33,26 @@ const data = [
 
   
 class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+
+    // this.selectPanel = this.selectPanel.bind(this);
+  }
   state = {
     loading: false,
     focused:  null
   };
 
-  selectPanel(id) {
-    this.setState({ 
-      focused: id
+  // selectPanel(id) {
+  //   this.setState({ 
+  //     focused: id
+  //   });
+  // }
+  selectPanel = id => {
+    this.setState({
+     focused: id
     });
-  }
+  };
 
   render() {
     const dashboardClasses = classnames("dashboard", {
@@ -62,6 +72,7 @@ class Dashboard extends Component {
         id={panel.id}
         label={panel.label}
         value={panel.value}
+        onSelect={event => this.selectPanel(panel.id)}
       />
     ));
 
