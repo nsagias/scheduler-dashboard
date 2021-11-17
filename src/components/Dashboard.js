@@ -38,10 +38,14 @@ class Dashboard extends Component {
 
     this.selectPanel = this.selectPanel.bind(this);
   }
+  
   state = {
-    loading: false,
-    focused:  null
-  };
+    loading: true,
+    focused: null,
+    days: [],
+    appointments: {},
+    interviewers: {}
+   };
 
   selectPanel(id) {
     this.setState(previousState => ({
